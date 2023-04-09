@@ -51,7 +51,7 @@ const changeHandler = (e) => {
         <form onSubmit={submitHandler}>
           <div>
             <label htmlFor="username">Username:</label>
-            <input id="username" type="text" name="username" onChange={changeHandler} value={values.username}
+            <input id="username" type="file" name="username" onChange={changeHandler} value={values.username}
             />
           </div>
           <div>
