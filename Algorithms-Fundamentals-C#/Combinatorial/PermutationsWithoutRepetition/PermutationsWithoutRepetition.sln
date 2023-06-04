@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermutationsWithoutRepetition", "PermutationsWithoutRepetition\PermutationsWithoutRepetition.csproj", "{540810B9-D669-429A-8E08-D544CE9D88E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PermutationsWithoutRepetition", "PermutationsWithoutRepetition\PermutationsWithoutRepetition.csproj", "{540810B9-D669-429A-8E08-D544CE9D88E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermutationsWithRepetition", "PermutationsWithRepetition\PermutationsWithRepetition.csproj", "{EBF31FD7-1607-49CB-B2DA-174D27C3410C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PermutationsWithRepetition", "PermutationsWithRepetition\PermutationsWithRepetition.csproj", "{EBF31FD7-1607-49CB-B2DA-174D27C3410C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermutationsOptimizedVersion", "PermutationsOptimizedVersion\PermutationsOptimizedVersion.csproj", "{621C4B5C-5FAB-4D8A-9B59-D64B627ED2B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PermutationsOptimizedVersion", "PermutationsOptimizedVersion\PermutationsOptimizedVersion.csproj", "{621C4B5C-5FAB-4D8A-9B59-D64B627ED2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VariationsWithoutRepetition", "VariationsWithoutRepetition\VariationsWithoutRepetition.csproj", "{01A81B5B-4703-4146-BB56-165813871620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{621C4B5C-5FAB-4D8A-9B59-D64B627ED2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{621C4B5C-5FAB-4D8A-9B59-D64B627ED2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{621C4B5C-5FAB-4D8A-9B59-D64B627ED2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A81B5B-4703-4146-BB56-165813871620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A81B5B-4703-4146-BB56-165813871620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A81B5B-4703-4146-BB56-165813871620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A81B5B-4703-4146-BB56-165813871620}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
