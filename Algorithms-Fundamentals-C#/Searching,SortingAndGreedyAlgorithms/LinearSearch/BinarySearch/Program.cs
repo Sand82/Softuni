@@ -8,15 +8,15 @@ namespace BinarySearch
         {
             var arr = new List<int>() { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60 };
 
-            var number = 50;
+            var number = 150;
 
-            var (index, isExsist) = BinarySearch(arr, number);
+            var (index, isExist) = BinarySearch(arr, number);
 
             Console.Write(index.ToString() + ' ');
-            Console.Write(isExsist);        
+            Console.Write(isExist);
         }
 
-        private static (int index, bool isExsist) BinarySearch(List<int> arr, int number)
+        private static (int index, bool isExist) BinarySearch(List<int> arr, int number)
         {
             var left = 0;
             var right = arr.Count - 1;
