@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinearSearch", "LinearSearch\LinearSearch.csproj", "{FA352BB9-C75D-4533-B306-D15FB950404F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinearSearch", "LinearSearch\LinearSearch.csproj", "{FA352BB9-C75D-4533-B306-D15FB950404F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearch", "BinarySearch\BinarySearch.csproj", "{11556B2A-3BBC-4A65-BE86-1BE824FADD00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearch", "BinarySearch\BinarySearch.csproj", "{11556B2A-3BBC-4A65-BE86-1BE824FADD00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchRecursive", "BinarySearchRecursive\BinarySearchRecursive.csproj", "{D2C26AAC-54F7-4784-9B38-DCB1052F0984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearchRecursive", "BinarySearchRecursive\BinarySearchRecursive.csproj", "{D2C26AAC-54F7-4784-9B38-DCB1052F0984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectionSort", "SelectionSort\SelectionSort.csproj", "{C0607235-8E18-43B8-9365-1C55FC775CEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D2C26AAC-54F7-4784-9B38-DCB1052F0984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C26AAC-54F7-4784-9B38-DCB1052F0984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C26AAC-54F7-4784-9B38-DCB1052F0984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0607235-8E18-43B8-9365-1C55FC775CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0607235-8E18-43B8-9365-1C55FC775CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0607235-8E18-43B8-9365-1C55FC775CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0607235-8E18-43B8-9365-1C55FC775CEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
