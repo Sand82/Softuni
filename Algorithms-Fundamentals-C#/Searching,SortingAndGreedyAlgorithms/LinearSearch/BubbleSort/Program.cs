@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace SelectionSort
+namespace BubbleSort
 {
     public class Program
     {
@@ -10,26 +10,22 @@ namespace SelectionSort
         {
             var arr = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
-            SelectionSort(arr);
+            BubbleSort(arr);
 
-            Console.WriteLine(String.Join(" ", arr));
+            Console.WriteLine(string.Join(" ", arr));
         }
 
-        private static void SelectionSort(int[] arr)
+        private static void BubbleSort(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
-            {
-                var index = i;
-
-                for (int j = i + 1; j < arr.Length; j++)
-                {
-                    if (arr[j] < arr[i])
+            {               
+                for (int j = 1; j < arr.Length - i; j++)
+                {                   
+                    if (arr[j - 1] > arr[j])
                     {
-                        index = j;
+                        Swap(arr, j - 1, j);
                     }
                 }
-
-                Swap(arr, i, index);
             }
         }
 
