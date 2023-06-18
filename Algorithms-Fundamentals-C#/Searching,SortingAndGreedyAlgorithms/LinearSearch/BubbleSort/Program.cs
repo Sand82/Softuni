@@ -17,15 +17,22 @@ namespace BubbleSort
 
         private static void BubbleSort(int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
-            {               
-                for (int j = 1; j < arr.Length - i; j++)
+            var isSorted = false;
+            var sortCount = 0;
+
+            while(!isSorted)
+            {
+                isSorted = true;
+
+                for (int j = 1; j < arr.Length - sortCount; j++)
                 {                   
                     if (arr[j - 1] > arr[j])
                     {
                         Swap(arr, j - 1, j);
+                        isSorted = false;
                     }
-                }
+                } 
+                sortCount++;
             }
         }
 
