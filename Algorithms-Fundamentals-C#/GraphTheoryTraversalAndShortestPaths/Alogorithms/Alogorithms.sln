@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alogorithms", "Alogorithms\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphsDFS", "GraphsDFS\GraphsDFS.csproj", "{8B589AB9-F255-4DF3-8139-DFA9528C5334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphsBFS", "GraphsBFS\GraphsBFS.csproj", "{D463D23A-D7CD-4C62-8F9D-C4AC85F33512}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphsBFS", "GraphsBFS\GraphsBFS.csproj", "{D463D23A-D7CD-4C62-8F9D-C4AC85F33512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ConnectedComponents", "01.ConnectedComponents\01.ConnectedComponents.csproj", "{0B1B263C-02FC-415C-8A29-21DD8B69B05B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D463D23A-D7CD-4C62-8F9D-C4AC85F33512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D463D23A-D7CD-4C62-8F9D-C4AC85F33512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D463D23A-D7CD-4C62-8F9D-C4AC85F33512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
