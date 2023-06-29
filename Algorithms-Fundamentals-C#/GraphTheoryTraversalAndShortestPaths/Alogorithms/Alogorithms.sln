@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphsDFS", "GraphsDFS\Grap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphsBFS", "GraphsBFS\GraphsBFS.csproj", "{D463D23A-D7CD-4C62-8F9D-C4AC85F33512}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ConnectedComponents", "01.ConnectedComponents\01.ConnectedComponents.csproj", "{0B1B263C-02FC-415C-8A29-21DD8B69B05B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.ConnectedComponents", "01.ConnectedComponents\01.ConnectedComponents.csproj", "{0B1B263C-02FC-415C-8A29-21DD8B69B05B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.SourceRemovalTopologicalSorting", "02.SourceRemovalTopologicalSorting\02.SourceRemovalTopologicalSorting.csproj", "{C68A5A73-FE2C-467C-A02E-42652582C3A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B1B263C-02FC-415C-8A29-21DD8B69B05B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68A5A73-FE2C-467C-A02E-42652582C3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68A5A73-FE2C-467C-A02E-42652582C3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68A5A73-FE2C-467C-A02E-42652582C3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68A5A73-FE2C-467C-A02E-42652582C3A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
