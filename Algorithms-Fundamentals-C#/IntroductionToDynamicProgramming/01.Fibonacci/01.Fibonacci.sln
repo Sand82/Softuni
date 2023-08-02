@@ -5,9 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Fibonacci", "01.Fibonacci\01.Fibonacci.csproj", "{6CEF5751-82A0-4438-9C8B-1B329843464B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.MoveDownRight", "02.MoveDownRight\02.MoveDownRight.csproj", "{B15B67B9-A432-4779-8E4B-0E534F59E63D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.MoveDownRight", "02.MoveDownRight\02.MoveDownRight.csproj", "{B15B67B9-A432-4779-8E4B-0E534F59E63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.SubSetSum", "04.SubSetSum\04.SubSetSum.csproj", "{9FC12292-CAAA-4C68-8BF8-7C6FEFBCF5E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.SubSetSum", "04.SubSetSum\04.SubSetSum.csproj", "{9FC12292-CAAA-4C68-8BF8-7C6FEFBCF5E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.LongestCommonSubsequence", "03.LongestCommonSubsequence\03.LongestCommonSubsequence.csproj", "{DE8FEAE5-7DE8-41AE-AC72-EF38ABDDB3A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9FC12292-CAAA-4C68-8BF8-7C6FEFBCF5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FC12292-CAAA-4C68-8BF8-7C6FEFBCF5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FC12292-CAAA-4C68-8BF8-7C6FEFBCF5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8FEAE5-7DE8-41AE-AC72-EF38ABDDB3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8FEAE5-7DE8-41AE-AC72-EF38ABDDB3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8FEAE5-7DE8-41AE-AC72-EF38ABDDB3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8FEAE5-7DE8-41AE-AC72-EF38ABDDB3A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
