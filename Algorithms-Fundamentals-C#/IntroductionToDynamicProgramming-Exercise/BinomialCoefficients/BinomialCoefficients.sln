@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinomialCoefficients", "BinomialCoefficients\BinomialCoefficients.csproj", "{65602AED-BA79-4F76-997C-61E4227C01ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinomialCoefficients", "BinomialCoefficients\BinomialCoefficients.csproj", "{65602AED-BA79-4F76-997C-61E4227C01ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DividingPresents", "DividingPresents\DividingPresents.csproj", "{B2F65377-4126-4BE9-8D28-8D45981BF56C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{65602AED-BA79-4F76-997C-61E4227C01ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65602AED-BA79-4F76-997C-61E4227C01ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65602AED-BA79-4F76-997C-61E4227C01ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F65377-4126-4BE9-8D28-8D45981BF56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F65377-4126-4BE9-8D28-8D45981BF56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F65377-4126-4BE9-8D28-8D45981BF56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F65377-4126-4BE9-8D28-8D45981BF56C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
