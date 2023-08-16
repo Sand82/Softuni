@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DividingPresents", "Dividin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumWithUnlimitedAmountOfCoins", "SumWithUnlimitedAmountOfCoins\SumWithUnlimitedAmountOfCoins.csproj", "{CAFB91B9-98F0-43CF-BFF8-2F2B71F2BCD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumWithLimitedAmountOfCoins", "SumWithLimitedAmountOfCoins\SumWithLimitedAmountOfCoins.csproj", "{4A83165F-F4C9-4A1E-BEB8-4D296717C849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumWithLimitedAmountOfCoins", "SumWithLimitedAmountOfCoins\SumWithLimitedAmountOfCoins.csproj", "{4A83165F-F4C9-4A1E-BEB8-4D296717C849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDifferences", "WordDifferences\WordDifferences.csproj", "{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4A83165F-F4C9-4A1E-BEB8-4D296717C849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A83165F-F4C9-4A1E-BEB8-4D296717C849}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A83165F-F4C9-4A1E-BEB8-4D296717C849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
