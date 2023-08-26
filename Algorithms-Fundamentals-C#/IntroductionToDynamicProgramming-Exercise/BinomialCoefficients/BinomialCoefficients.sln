@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumWithLimitedAmountOfCoins
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordDifferences", "WordDifferences\WordDifferences.csproj", "{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectingCables", "ConnectingCables\ConnectingCables.csproj", "{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectingCables", "ConnectingCables\ConnectingCables.csproj", "{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumEditDistance", "MinimumEditDistance\MinimumEditDistance.csproj", "{89362F5A-8667-4869-B044-D5D2378EEFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89362F5A-8667-4869-B044-D5D2378EEFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89362F5A-8667-4869-B044-D5D2378EEFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89362F5A-8667-4869-B044-D5D2378EEFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89362F5A-8667-4869-B044-D5D2378EEFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
