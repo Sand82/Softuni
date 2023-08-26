@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumWithUnlimitedAmountOfCoi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumWithLimitedAmountOfCoins", "SumWithLimitedAmountOfCoins\SumWithLimitedAmountOfCoins.csproj", "{4A83165F-F4C9-4A1E-BEB8-4D296717C849}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDifferences", "WordDifferences\WordDifferences.csproj", "{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordDifferences", "WordDifferences\WordDifferences.csproj", "{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectingCables", "ConnectingCables\ConnectingCables.csproj", "{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2830EA7-4BC5-46AF-97D0-577B31FC85D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331F45D8-7ADC-4CB4-ACA7-BA5AF28257F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
