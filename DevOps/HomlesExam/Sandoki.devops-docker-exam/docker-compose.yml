@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+    sqlserver:
+        container_name: sqlserver
+        image: mcr.microsoft.com/mssql/server
+        ports:
+            - "1433:1433"
+        deploy:
+            resources:
+                reservations:
+                    cpus: '2'
+                    memory: 2GB
+        environment:    
+            - ACCEPT_EULA=Y
+            - MSSQL_SA_PASSWORD=myStrongPassword12#
+        volumes:
+            - sqldata:/var/opt/mssql/server
+    web-app:
+        container_name: web-app
+        build: 
+            dockerfile: ./Homies/Dockerfile
+        image: sandhomiesscr.azurecr.io/homiess
+        ports:
+            - "80:80"
+        restart: on-failure
+        domainname: sandokidevops
+volumes:
+    sqldata: 
+        driver: azure_file
+        driver_opts:
+            share_name: sql-volume
+            storage_account_name: sandokihomiessacc
