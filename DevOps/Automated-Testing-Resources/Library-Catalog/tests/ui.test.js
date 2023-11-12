@@ -5,7 +5,7 @@ const adminPassword = '123456';
 
 const userEmail = randomNumber() +'newuser@abv.bg' 
 const userPassword = '111111'
-const userRepeadPassword = '111111'
+const userRepeatPassword = '111111'
 
 test('Veryfy "All Books" link is visible', async ({page}) => {
     await page.goto('http://localhost:3000/');
@@ -128,7 +128,7 @@ test('Login with empty adminPassword should return alert', async ({page}) => {
 
 test('Register with valid credentials', async ({page}) => {
     
-    await userRegister(page, userEmail, userPassword, userRepeadPassword);    
+    await userRegister(page, userEmail, userPassword, userRepeatPassword);    
 
     await page.$('a[href="/catalog"]');    
 
@@ -138,6 +138,51 @@ test('Register with valid credentials', async ({page}) => {
 test('Register with empty fields should return alert', async ({page}) => {
     
     await userRegister(page, " ", " ", " ");
+    
+    page.on('dalog', async dialog => {
+        expect(dialog.type()).toContain('alert');
+        expect(dialog.message()).toContain('All fields are required!');
+        await dialog.accept();   
+    })   
+
+    await page.$('a[href="/register"]');    
+
+    expect(page.url()).toBe('http://localhost:3000/register');
+});
+
+test('Register with empty email should return alert', async ({page}) => {
+    
+    await userRegister(page, " ", userPassword, userRepeatPassword);
+    
+    page.on('dalog', async dialog => {
+        expect(dialog.type()).toContain('alert');
+        expect(dialog.message()).toContain('All fields are required!');
+        await dialog.accept();   
+    })   
+
+    await page.$('a[href="/register"]');    
+
+    expect(page.url()).toBe('http://localhost:3000/register');
+});
+
+test('Register with empty password should return alert', async ({page}) => {
+    
+    await userRegister(page, userEmail, " ", userRepeatPassword);
+    
+    page.on('dalog', async dialog => {
+        expect(dialog.type()).toContain('alert');
+        expect(dialog.message()).toContain('All fields are required!');
+        await dialog.accept();   
+    })   
+
+    await page.$('a[href="/register"]');    
+
+    expect(page.url()).toBe('http://localhost:3000/register');
+});
+
+test.only('Register with empty repeat password should return alert', async ({page}) => {
+    
+    await userRegister(page, userEmail, userPassword, " ");
     
     page.on('dalog', async dialog => {
         expect(dialog.type()).toContain('alert');
