@@ -1,7 +1,11 @@
 const {test, expect} = require('@playwright/test');
 
-const email = 'peter@abv.bg';
-const password = '123456';
+const adminEmail = 'peter@abv.bg';
+const adminPassword = '123456';
+
+const userEmail = 'newuser@abv.bg'
+const userPassword = '111111'
+const userRepeadPassword = '111111'
 
 test('Veryfy "All Books" link is visible', async ({page}) => {
     await page.goto('http://localhost:3000/');
@@ -34,7 +38,7 @@ test('Veryfy "Register" button is visible', async ({page}) => {
 });
 
 test('Veryfy "All Books" link is visible after user login', async ({page}) => {
-    await userLogedIn(page, email, password);   
+    await adminLogin(page, adminEmail, adminPassword);   
 
     const allBooksLink = await page.$('a[href="/catalog"]');
     const isLinkVisible = await allBooksLink.isVisible();
@@ -43,7 +47,7 @@ test('Veryfy "All Books" link is visible after user login', async ({page}) => {
 });
 
 test('Veryfy "My book" button is visible after user login', async ({page}) => {
-    await userLogedIn(page, email, password);
+    await adminLogin(page, adminEmail, adminPassword);
     await page.waitForSelector('#user');
 
     const myBookLink = await page.$('a[href="/profile"]');
@@ -53,7 +57,7 @@ test('Veryfy "My book" button is visible after user login', async ({page}) => {
 });
 
 test('Veryfy "Add Books" button is visible after user login', async ({page}) => {
-    await userLogedIn(page, email,password);
+    await adminLogin(page, adminEmail,adminPassword);
     await page.waitForSelector('#user');
 
     const addBookLink = await page.$('a[href="/create"]');
@@ -62,18 +66,18 @@ test('Veryfy "Add Books" button is visible after user login', async ({page}) => 
     expect(isVisible).toBe(true);
 });
 
-test('Veryfy "Email address" is visible after user login', async ({page}) => {
-    await userLogedIn(page, email, password);
+test('Veryfy "adminEmail address" is visible after user login', async ({page}) => {
+    await adminLogin(page, adminEmail, adminPassword);
     await page.waitForSelector('#user');
 
-    const emailAddressLink = await page.$('#user>span');
-    const isVisible = await emailAddressLink.isVisible();
+    const adminEmailAddressLink = await page.$('#user>span');
+    const isVisible = await adminEmailAddressLink.isVisible();
 
     expect(isVisible).toBe(true);
 });
 
 test('Login with valid credentials', async ({page}) => {
-    await userLogedIn(page, email, password);    
+    await adminLogin(page, adminEmail, adminPassword);    
 
     await page.$('a[href="/catalog"]');    
 
@@ -81,7 +85,7 @@ test('Login with valid credentials', async ({page}) => {
 });
 
 test('Login with empty form should return alert', async ({page}) => {
-    await userLogedIn(page, "", "");
+    await adminLogin(page, "", "");
 
     page.on('dalog', async dialog => {
         expect(dialog.type()).toContain('alert');
@@ -94,8 +98,8 @@ test('Login with empty form should return alert', async ({page}) => {
     expect(page.url()).toBe('http://localhost:3000/login');
 });
 
-test('Login with empty email should return alert', async ({page}) => {
-    await userLogedIn(page, "", password);
+test('Login with empty adminEmail should return alert', async ({page}) => {
+    await adminLogin(page, "", adminPassword);
 
     page.on('dalog', async dialog => {
         expect(dialog.type()).toContain('alert');
@@ -108,8 +112,8 @@ test('Login with empty email should return alert', async ({page}) => {
     expect(page.url()).toBe('http://localhost:3000/login');
 });
 
-test('Login with empty password should return alert', async ({page}) => {
-    await userLogedIn(page, email, "");
+test('Login with empty adminPassword should return alert', async ({page}) => {
+    await adminLogin(page, adminEmail, "");
 
     page.on('dalog', async dialog => {
         expect(dialog.type()).toContain('alert');
@@ -122,9 +126,25 @@ test('Login with empty password should return alert', async ({page}) => {
     expect(page.url()).toBe('http://localhost:3000/login');
 });
 
-async function userLogedIn(page, email, password) {
+test.only('Register with valid credentials', async ({page}) => {
+    await userRegister(page, userEmail, userPassword, userRepeadPassword);    
+
+    await page.$('a[href="/catalog"]');    
+
+    expect(page.url()).toBe('http://localhost:3000/catalog');
+});
+
+async function adminLogin(page, adminEmail, adminPassword) {
     await page.goto('http://localhost:3000/login');
-    await page.fill('input[name="email"]', email);
-    await page.fill('input[name="password"]', password);
+    await page.fill('input[name="email"]', adminEmail);
+    await page.fill('input[name="password"]', adminPassword);    
+    await page.click('input[type="submit"]');
+} 
+
+async function userRegister(page, userEmail, userPassword, repeatPassword) {
+    await page.goto('http://localhost:3000/register');
+    await page.fill('input[name="email"]', userEmail);
+    await page.fill('input[name="password"]', userPassword);
+    await page.fill('input[name="confirm-pass"]', repeatPassword);
     await page.click('input[type="submit"]');
 } 
