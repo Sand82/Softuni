@@ -87,11 +87,7 @@ test('Login with valid credentials', async ({page}) => {
 test('Login with empty form should return alert', async ({page}) => {
     await adminLogin(page, "", "");
 
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
     
     await page.$('a[href="/login"]');    
 
@@ -101,11 +97,7 @@ test('Login with empty form should return alert', async ({page}) => {
 test('Login with empty adminEmail should return alert', async ({page}) => {
     await adminLogin(page, "", adminPassword);
 
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
     
     await page.$('a[href="/login"]');    
 
@@ -115,11 +107,7 @@ test('Login with empty adminEmail should return alert', async ({page}) => {
 test('Login with empty adminPassword should return alert', async ({page}) => {
     await adminLogin(page, adminEmail, "");
 
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
     
     await page.$('a[href="/login"]');    
 
@@ -139,11 +127,7 @@ test('Register with empty fields should return alert', async ({page}) => {
     
     await userRegister(page, " ", " ", " ");
     
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
@@ -154,11 +138,7 @@ test('Register with empty email should return alert', async ({page}) => {
     
     await userRegister(page, " ", userPassword, userRepeatPassword);
     
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
@@ -169,31 +149,42 @@ test('Register with empty password should return alert', async ({page}) => {
     
     await userRegister(page, userEmail, " ", userRepeatPassword);
     
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe('http://localhost:3000/register');
 });
 
-test.only('Register with empty repeat password should return alert', async ({page}) => {
+test('Register with empty repeat password should return alert', async ({page}) => {
     
     await userRegister(page, userEmail, userPassword, " ");
     
-    page.on('dalog', async dialog => {
-        expect(dialog.type()).toContain('alert');
-        expect(dialog.message()).toContain('All fields are required!');
-        await dialog.accept();   
-    })   
+    alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe('http://localhost:3000/register');
 });
+
+test('Register with diferent password and repeat password should return alert', async ({page}) => {
+    
+    await userRegister(page, userEmail, userPassword, "123456");
+    
+    alertMessage(page);
+
+    await page.$('a[href="/register"]');    
+
+    expect(page.url()).toBe('http://localhost:3000/register');
+});
+
+async function alertMessage(page) {
+    page.on('dalog', async dialog => {
+        expect(dialog.type()).toContain('alert');
+        expect(dialog.message()).toContain('All fields are required!');
+        await dialog.accept();   
+    })   
+}
 
 async function adminLogin(page, adminEmail, adminPassword) {
     await page.goto('http://localhost:3000/login');
