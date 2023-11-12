@@ -31,7 +31,7 @@ test('Veryfy "Register" button is visible', async ({page}) => {
 });
 
 test('Veryfy "All Books" link is visible after user login', async ({page}) => {
-    await userLogin(page);   
+    await userLogedIn(page);   
 
     const allBooksLink = await page.$('a[href="/catalog"]');
     const isLinkVisible = await allBooksLink.isVisible();
@@ -39,18 +39,46 @@ test('Veryfy "All Books" link is visible after user login', async ({page}) => {
     expect(isLinkVisible).toBe(true);
 });
 
-test.only('Veryfy "Add Books" button is visible', async ({page}) => {
-    await userLogin(page);
+test('Veryfy "My book" button is visible after user login', async ({page}) => {
+    await userLogedIn(page);
+    await page.waitForSelector('#user');
+
+    const myBookLink = await page.$('a[href="/profile"]');
+    const isVisible = await myBookLink.isVisible();
+
+    expect(isVisible).toBe(true);
+});
+
+test('Veryfy "Add Books" button is visible after user login', async ({page}) => {
+    await userLogedIn(page);
     await page.waitForSelector('#user');
 
     const addBookLink = await page.$('a[href="/create"]');
-    const isAddBookVisible = await addBookLink.isVisible();
+    const isVisible = await addBookLink.isVisible();
 
-    expect(isAddBookVisible).toBe(true);
+    expect(isVisible).toBe(true);
+});
+
+test('Veryfy "Email address" is visible after user login', async ({page}) => {
+    await userLogedIn(page);
+    await page.waitForSelector('#user');
+
+    const emailAddressLink = await page.$('#user>span');
+    const isVisible = await emailAddressLink.isVisible();
+
+    expect(isVisible).toBe(true);
+});
+
+test('Login with valid credentials', async ({page}) => {
+    await userLogedIn(page);    
+
+    await page.$('a[href="/catalog"]');    
+
+    expect(page.url()).toBe('http://localhost:3000/catalog');
 });
 
 
-async function userLogin(page) {
+async function userLogedIn(page) {
     await page.goto('http://localhost:3000/login');
     await page.fill('input[name="email"]', 'peter@abv.bg');
     await page.fill('input[name="password"]', '123456');
