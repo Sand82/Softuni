@@ -12,8 +12,10 @@ const bookDescription = 'Test Book description';
 const bookimageUrl = 'https://example.com/book-image.jpg';
 const bookType = 'Fiction';
 
+const URL = 'http://localhost:3000/';
+
 test('Veryfy "All Books" link is visible', async ({page}) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto(URL);
     await page.waitForSelector('nav.navbar');
 
     const allBooksLink = await page.$('a[href="/catalog"]');
@@ -23,7 +25,7 @@ test('Veryfy "All Books" link is visible', async ({page}) => {
 });
 
 test('Veryfy "Login" button is visible', async ({page}) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto(URL);                            
     await page.waitForSelector('nav.navbar');
 
     const loginLink = await page.$('a[href="/login"]');
@@ -33,7 +35,7 @@ test('Veryfy "Login" button is visible', async ({page}) => {
 });
 
 test('Veryfy "Register" button is visible', async ({page}) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto(URL);
     await page.waitForSelector('nav.navbar');
 
     const registerLink = await page.$('a[href="/register"]');
@@ -86,7 +88,7 @@ test('Login with valid credentials', async ({page}) => {
 
     await page.$('a[href="/catalog"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/catalog');
+    expect(page.url()).toBe(`${URL}catalog`);
 });
 
 test('Login with empty form should return alert', async ({page}) => {
@@ -96,7 +98,7 @@ test('Login with empty form should return alert', async ({page}) => {
     
     await page.$('a[href="/login"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/login');
+    expect(page.url()).toBe(`${URL}login`);
 });
 
 test('Login with empty adminEmail should return alert', async ({page}) => {
@@ -106,7 +108,7 @@ test('Login with empty adminEmail should return alert', async ({page}) => {
     
     await page.$('a[href="/login"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/login');
+    expect(page.url()).toBe(`${URL}login`);
 });
 
 test('Login with empty adminPassword should return alert', async ({page}) => {
@@ -116,7 +118,7 @@ test('Login with empty adminPassword should return alert', async ({page}) => {
     
     await page.$('a[href="/login"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/login');
+    expect(page.url()).toBe(`${URL}login`);
 });
 
 test('Register with valid credentials', async ({page}) => {
@@ -125,7 +127,7 @@ test('Register with valid credentials', async ({page}) => {
 
     await page.$('a[href="/catalog"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/catalog');
+    expect(page.url()).toBe(`${URL}catalog`);
 });
 
 test('Register with empty fields should return alert', async ({page}) => {
@@ -136,7 +138,7 @@ test('Register with empty fields should return alert', async ({page}) => {
 
     await page.$('a[href="/register"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/register');
+    expect(page.url()).toBe(`${URL}register`);
 });
 
 test('Register with empty email should return alert', async ({page}) => {
@@ -147,7 +149,7 @@ test('Register with empty email should return alert', async ({page}) => {
 
     await page.$('a[href="/register"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/register');
+    expect(page.url()).toBe(`${URL}register`);
 });
 
 test('Register with empty password should return alert', async ({page}) => {
@@ -158,7 +160,7 @@ test('Register with empty password should return alert', async ({page}) => {
 
     await page.$('a[href="/register"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/register');
+    expect(page.url()).toBe(`${URL}register`);
 });
 
 test('Register with empty repeat password should return alert', async ({page}) => {
@@ -169,7 +171,7 @@ test('Register with empty repeat password should return alert', async ({page}) =
 
     await page.$('a[href="/register"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/register');
+    expect(page.url()).toBe(`${URL}register`);
 });
 
 test('Register with diferent password and repeat password should return alert', async ({page}) => {
@@ -180,7 +182,7 @@ test('Register with diferent password and repeat password should return alert', 
 
     await page.$('a[href="/register"]');    
 
-    expect(page.url()).toBe('http://localhost:3000/register');
+    expect(page.url()).toBe(`${URL}register`);
 });
 
 test('Add book with correct data', async ({page}) => {
@@ -189,9 +191,9 @@ test('Add book with correct data', async ({page}) => {
 
     await createBook(page, bookTitle, bookDescription, bookimageUrl, bookType);    
 
-    await page.waitForURL('http://localhost:3000/catalog');
+    await page.waitForURL(`${URL}catalog`);
 
-    expect(page.url()).toBe('http://localhost:3000/catalog');    
+    expect(page.url()).toBe(`${URL}catalog`);    
 });
 
 test('Add book with empty title fields should return alert', async ({page}) => {
@@ -204,7 +206,7 @@ test('Add book with empty title fields should return alert', async ({page}) => {
 
     await page.$('a[href="/create"]');
 
-    expect(page.url()).toBe('http://localhost:3000/create');    
+    expect(page.url()).toBe(`${URL}create`);    
 });
 
 test('Add book with empty description fields should return alert', async ({page}) => {
@@ -217,7 +219,7 @@ test('Add book with empty description fields should return alert', async ({page}
 
     await page.$('a[href="/create"]');
 
-    expect(page.url()).toBe('http://localhost:3000/create');    
+    expect(page.url()).toBe(`${URL}create`);    
 });
 
 test('Add book with empty Image Url fields should return alert', async ({page}) => {
@@ -230,7 +232,7 @@ test('Add book with empty Image Url fields should return alert', async ({page}) 
 
     await page.$('a[href="/create"]');
 
-    expect(page.url()).toBe('http://localhost:3000/create');    
+    expect(page.url()).toBe(`${URL}create`);    
 });
 
 test('Add book with empty book type fields should return alert', async ({page}) => {
@@ -243,7 +245,7 @@ test('Add book with empty book type fields should return alert', async ({page}) 
 
     await page.$('a[href="/create"]');
 
-    expect(page.url()).toBe('http://localhost:3000/create');    
+    expect(page.url()).toBe(`${URL}create`);    
 });
 
 test('login user see All book displayed', async ({page}) => {
@@ -268,6 +270,55 @@ test('When book in All book are zero should return proper message', async ({page
     expect(noBooksMessage).toBe('No books in database!');   
 });
 
+test('login user see Details page', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword);
+
+    await page.waitForURL(`${URL}catalog`);
+    
+    await page.click('a[href="/catalog"]');  
+    await page.waitForSelector('.otherBooks');  
+    await page.click('.otherBooks a.button');  
+    await page.waitForSelector('.book-information');  
+
+    const detailsPageTitle = await page.textContent('.book-information h3');
+
+    expect(detailsPageTitle).toBe('Test Book');   
+});
+
+test('Guest user see Details page', async ({page}) => {    
+   
+    await page.goto(URL);    
+    
+    await page.click('a[href="/catalog"]');  
+    await page.waitForSelector('.otherBooks');  
+    await page.click('.otherBooks a.button');  
+    await page.waitForSelector('.book-information');  
+
+    const detailsPageTitle = await page.textContent('.book-information h3');
+
+    expect(detailsPageTitle).not.toBeNull();   
+});
+
+test.only('Details page should content all information', async ({page}) => {
+        
+    await page.goto(URL);    
+    
+    await page.click('a[href="/catalog"]');  
+    await page.waitForSelector('.otherBooks');  
+    await page.click('.otherBooks a.button');  
+    await page.waitForSelector('.book-information');  
+
+    const detailsPageTitle = await page.textContent('.book-information h3');
+    const typePageTitle = await page.textContent('.type');
+    const imagePageTitle = await page.textContent('.img');
+
+    expect(detailsPageTitle).not.toBeNull();   
+    expect(typePageTitle).not.toBeNull();   
+    expect(imagePageTitle).not.toBeNull();   
+});
+
+
 async function alertMessage(page) {
     page.on('dalog', async dialog => {
         expect(dialog.type()).toContain('alert');
@@ -277,14 +328,14 @@ async function alertMessage(page) {
 }
 
 async function adminLogin(page, adminEmail, adminPassword) {
-    await page.goto('http://localhost:3000/login');
+    await page.goto(`${URL}login`);
     await page.fill('input[name="email"]', adminEmail);
     await page.fill('input[name="password"]', adminPassword);    
     await page.click('input[type="submit"]');
 } 
 
 async function userRegister(page, userEmail, userPassword, repeatPassword) {
-    await page.goto('http://localhost:3000/register');
+    await page.goto(`${URL}register`);
     await page.fill('input[name="email"]', userEmail);
     await page.fill('input[name="password"]', userPassword);
     await page.fill('input[name="confirm-pass"]', repeatPassword);
