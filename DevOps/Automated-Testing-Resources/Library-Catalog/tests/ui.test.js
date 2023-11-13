@@ -207,11 +207,37 @@ test('Add book with empty title fields should return alert', async ({page}) => {
     expect(page.url()).toBe('http://localhost:3000/create');    
 });
 
-test.only('Add book with empty description fields should return alert', async ({page}) => {
+test('Add book with empty description fields should return alert', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
     await createBook(page, bookTitle, "", bookimageUrl, bookType);
+    
+    await alertMessage(page);
+
+    await page.$('a[href="/create"]');
+
+    expect(page.url()).toBe('http://localhost:3000/create');    
+});
+
+test('Add book with empty Image Url fields should return alert', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await createBook(page, bookTitle, bookDescription, "", bookType);
+    
+    await alertMessage(page);
+
+    await page.$('a[href="/create"]');
+
+    expect(page.url()).toBe('http://localhost:3000/create');    
+});
+
+test.only('Add book with empty book type fields should return alert', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await createBook(page, bookTitle, bookDescription, "", bookType);
     
     await alertMessage(page);
 
