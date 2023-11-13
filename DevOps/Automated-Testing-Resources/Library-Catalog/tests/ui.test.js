@@ -233,7 +233,7 @@ test('Add book with empty Image Url fields should return alert', async ({page}) 
     expect(page.url()).toBe('http://localhost:3000/create');    
 });
 
-test.only('Add book with empty book type fields should return alert', async ({page}) => {
+test('Add book with empty book type fields should return alert', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -244,6 +244,28 @@ test.only('Add book with empty book type fields should return alert', async ({pa
     await page.$('a[href="/create"]');
 
     expect(page.url()).toBe('http://localhost:3000/create');    
+});
+
+test('login user see All book displayed', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await page.waitForSelector('.dashboard');
+
+    const booksElements = await page.$$('.other-books-list li');
+
+    expect(booksElements.length).toBeGreaterThan(0);   
+});
+
+test('When book in All book are zero should return proper message', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await page.waitForSelector('.dashboard');
+
+    const noBooksMessage = await page.textContent('.no-books');
+
+    expect(noBooksMessage).toBe('No books in database!');   
 });
 
 async function alertMessage(page) {
