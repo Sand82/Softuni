@@ -7,6 +7,11 @@ const userEmail = randomNumber() +'newuser@abv.bg'
 const userPassword = '111111'
 const userRepeatPassword = '111111'
 
+const bookTitle = 'Test Book';
+const bookDescription = 'Test Book description';
+const bookimageUrl = 'https://example.com/book-image.jpg';
+const bookType = 'Fiction';
+
 test('Veryfy "All Books" link is visible', async ({page}) => {
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('nav.navbar');
@@ -87,7 +92,7 @@ test('Login with valid credentials', async ({page}) => {
 test('Login with empty form should return alert', async ({page}) => {
     await adminLogin(page, "", "");
 
-    alertMessage(page);
+    await alertMessage(page);
     
     await page.$('a[href="/login"]');    
 
@@ -97,7 +102,7 @@ test('Login with empty form should return alert', async ({page}) => {
 test('Login with empty adminEmail should return alert', async ({page}) => {
     await adminLogin(page, "", adminPassword);
 
-    alertMessage(page);
+    await alertMessage(page);
     
     await page.$('a[href="/login"]');    
 
@@ -127,7 +132,7 @@ test('Register with empty fields should return alert', async ({page}) => {
     
     await userRegister(page, " ", " ", " ");
     
-    alertMessage(page);
+    await alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
@@ -138,7 +143,7 @@ test('Register with empty email should return alert', async ({page}) => {
     
     await userRegister(page, " ", userPassword, userRepeatPassword);
     
-    alertMessage(page);
+    await alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
@@ -149,7 +154,7 @@ test('Register with empty password should return alert', async ({page}) => {
     
     await userRegister(page, userEmail, " ", userRepeatPassword);
     
-    alertMessage(page);
+    await alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
@@ -160,7 +165,7 @@ test('Register with empty repeat password should return alert', async ({page}) =
     
     await userRegister(page, userEmail, userPassword, " ");
     
-    alertMessage(page);
+    await alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
@@ -171,11 +176,48 @@ test('Register with diferent password and repeat password should return alert', 
     
     await userRegister(page, userEmail, userPassword, "123456");
     
-    alertMessage(page);
+    await alertMessage(page);
 
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe('http://localhost:3000/register');
+});
+
+test('Add book with correct data', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await createBook(page, bookTitle, bookDescription, bookimageUrl, bookType);    
+
+    await page.waitForURL('http://localhost:3000/catalog');
+
+    expect(page.url()).toBe('http://localhost:3000/catalog');    
+});
+
+test('Add book with empty title fields should return alert', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await createBook(page, "", bookDescription, bookimageUrl, bookType);
+    
+    await alertMessage(page);
+
+    await page.$('a[href="/create"]');
+
+    expect(page.url()).toBe('http://localhost:3000/create');    
+});
+
+test.only('Add book with empty description fields should return alert', async ({page}) => {
+    
+    await adminLogin(page, adminEmail, adminPassword); 
+
+    await createBook(page, bookTitle, "", bookimageUrl, bookType);
+    
+    await alertMessage(page);
+
+    await page.$('a[href="/create"]');
+
+    expect(page.url()).toBe('http://localhost:3000/create');    
 });
 
 async function alertMessage(page) {
@@ -200,6 +242,18 @@ async function userRegister(page, userEmail, userPassword, repeatPassword) {
     await page.fill('input[name="confirm-pass"]', repeatPassword);
     await page.click('input[type="submit"]');
 } 
+
+async function createBook(page, title, description, imageUrl, type){
+
+    await page.click('a[href="/create"]');  
+    await page.waitForSelector('#create-form');
+    await page.fill('#title', title);
+    await page.fill('#description', description);  
+    await page.fill('#image', imageUrl);
+    await page.selectOption('#type', type);
+    
+    await page.click('#create-form input[type="submit"]')
+}
 
 function randomNumber() {
     let number = Math.floor(Math.random() * 10000000000);
