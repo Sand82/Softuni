@@ -300,7 +300,7 @@ test('Guest user see Details page', async ({page}) => {
     expect(detailsPageTitle).not.toBeNull();   
 });
 
-test.only('Details page should content all information', async ({page}) => {
+test('Details page should content all information', async ({page}) => {
         
     await page.goto(URL);    
     
@@ -317,7 +317,6 @@ test.only('Details page should content all information', async ({page}) => {
     expect(typePageTitle).not.toBeNull();   
     expect(imagePageTitle).not.toBeNull();   
 });
-
 
 async function alertMessage(page) {
     page.on('dalog', async dialog => {
