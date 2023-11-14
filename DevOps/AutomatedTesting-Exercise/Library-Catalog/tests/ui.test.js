@@ -53,6 +53,15 @@ test('Veryfy welcome email text is visible', async ({page}) => {
     expect(welcome).toBe(`Welcome, ${adminEmail}`);
 });
 
+test('Veryfy welcome email text is not visible', async ({page}) => {
+
+    await page.goto(`${URL}/catalog`); 
+
+    const welcome = await page.textContent('#user span');
+    
+    expect(welcome).toBe("Welcome, {email}");
+});
+
 test('Veryfy "All Books" link is visible after user login', async ({page}) => {
     await adminLogin(page, adminEmail, adminPassword);   
 
