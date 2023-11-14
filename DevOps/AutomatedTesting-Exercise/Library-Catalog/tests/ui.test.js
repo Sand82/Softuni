@@ -44,6 +44,15 @@ test('Veryfy "Register" button is visible', async ({page}) => {
     expect(isRegisterVisible).toBe(true);
 });
 
+test('Veryfy welcome email text is visible', async ({page}) => {
+
+    await adminLogin(page, adminEmail, adminPassword);      
+
+    const welcome = await page.textContent('#user span');
+    
+    expect(welcome).toBe(`Welcome, ${adminEmail}`);
+});
+
 test('Veryfy "All Books" link is visible after user login', async ({page}) => {
     await adminLogin(page, adminEmail, adminPassword);   
 
@@ -344,7 +353,7 @@ test('Details page should like button for creator', async ({page}) => {
     expect(like).toBe('Like');   
 });
 
-test.only('Details page should be visible Edit and Delete buttons for creator', async ({page}) => {
+test('Details page should be visible Edit and Delete buttons for creator', async ({page}) => {
         
     await adminLogin(page, 'john@abv.bg', adminPassword);    
     
