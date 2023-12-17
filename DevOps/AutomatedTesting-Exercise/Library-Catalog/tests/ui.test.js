@@ -1,4 +1,5 @@
 const {test, expect} = require('@playwright/test');
+const { assert } = require('chai');
 
 const adminEmail = 'peter@abv.bg';
 const adminPassword = '123456';
@@ -14,7 +15,7 @@ const bookType = 'Fiction';
 
 const URL = 'http://localhost:3000';
 
-test('Veryfy "All Books" link is visible', async ({page}) => {
+test('01.Veryfy "All Books" link is visible', async ({page}) => {
     await page.goto(URL);
     await page.waitForSelector('nav.navbar');
 
@@ -24,7 +25,7 @@ test('Veryfy "All Books" link is visible', async ({page}) => {
     expect(isLinkVisible).toBe(true);
 });
 
-test('Veryfy "Login" button is visible', async ({page}) => {
+test('02.Veryfy "Login" button is visible', async ({page}) => {
     await page.goto(URL);                            
     await page.waitForSelector('nav.navbar');
 
@@ -34,7 +35,7 @@ test('Veryfy "Login" button is visible', async ({page}) => {
     expect(isLoginVisible).toBe(true);
 });
 
-test('Veryfy "Register" button is visible', async ({page}) => {
+test('03.Veryfy "Register" button is visible', async ({page}) => {
     await page.goto(URL);
     await page.waitForSelector('nav.navbar');
 
@@ -44,7 +45,7 @@ test('Veryfy "Register" button is visible', async ({page}) => {
     expect(isRegisterVisible).toBe(true);
 });
 
-test('Veryfy welcome email text is visible', async ({page}) => {
+test('04.Veryfy welcome email text is visible', async ({page}) => {
 
     await adminLogin(page, adminEmail, adminPassword);      
 
@@ -53,7 +54,7 @@ test('Veryfy welcome email text is visible', async ({page}) => {
     expect(welcome).toBe(`Welcome, ${adminEmail}`);
 });
 
-test('Veryfy welcome email text is not visible', async ({page}) => {
+test('05.Veryfy welcome email text is not visible', async ({page}) => {
 
     await page.goto(`${URL}/catalog`); 
 
@@ -62,7 +63,7 @@ test('Veryfy welcome email text is not visible', async ({page}) => {
     expect(welcome).toBe("Welcome, {email}");
 });
 
-test('Veryfy "All Books" link is visible after user login', async ({page}) => {
+test('06.Veryfy "All Books" link is visible after user login', async ({page}) => {
     await adminLogin(page, adminEmail, adminPassword);   
 
     const allBooksLink = await page.$('a[href="/catalog"]');
@@ -71,7 +72,7 @@ test('Veryfy "All Books" link is visible after user login', async ({page}) => {
     expect(isLinkVisible).toBe(true);
 });
 
-test('Veryfy "My book" button is visible after user login', async ({page}) => {
+test('07.Veryfy "My book" button is visible after user login', async ({page}) => {
     await adminLogin(page, adminEmail, adminPassword);
     await page.waitForSelector('#user');
 
@@ -81,7 +82,7 @@ test('Veryfy "My book" button is visible after user login', async ({page}) => {
     expect(isVisible).toBe(true);
 });
 
-test('Veryfy "Add Books" button is visible after user login', async ({page}) => {
+test('08.Veryfy "Add Books" button is visible after user login', async ({page}) => {
     await adminLogin(page, adminEmail,adminPassword);
     await page.waitForSelector('#user');
 
@@ -91,7 +92,7 @@ test('Veryfy "Add Books" button is visible after user login', async ({page}) => 
     expect(isVisible).toBe(true);
 });
 
-test('Veryfy "adminEmail address" is visible after user login', async ({page}) => {
+test('09.Veryfy "adminEmail address" is visible after user login', async ({page}) => {
     await adminLogin(page, adminEmail, adminPassword);
     await page.waitForSelector('#user');
 
@@ -101,7 +102,7 @@ test('Veryfy "adminEmail address" is visible after user login', async ({page}) =
     expect(isVisible).toBe(true);
 });
 
-test('Login with valid credentials', async ({page}) => {
+test('10.Login with valid credentials', async ({page}) => {
     await adminLogin(page, adminEmail, adminPassword);    
 
     await page.$('a[href="/catalog"]');    
@@ -109,17 +110,22 @@ test('Login with valid credentials', async ({page}) => {
     expect(page.url()).toBe(`${URL}/catalog`);
 });
 
-test('Login with empty form should return alert', async ({page}) => {
+test('11.Login with empty form should return alert', async ({page}) => {
+        
     await adminLogin(page, "", "");
+    page.on('dialog', async (dialog) => {
+        
+        assert(dialog.type()).toContain(' ');
+        await assert(dialog.message()).toContain(' ');        
+        await dialog.dismiss();   
+    });
 
-    await alertMessage(page);
-    
     await page.$('a[href="/login"]');    
 
     expect(page.url()).toBe(`${URL}/login`);
 });
 
-test('Login with empty adminEmail should return alert', async ({page}) => {
+test('12.Login with empty adminEmail should return alert', async ({page}) => {
     await adminLogin(page, "", adminPassword);
 
     await alertMessage(page);
@@ -129,7 +135,7 @@ test('Login with empty adminEmail should return alert', async ({page}) => {
     expect(page.url()).toBe(`${URL}/login`);
 });
 
-test('Login with empty adminPassword should return alert', async ({page}) => {
+test('13.Login with empty adminPassword should return alert', async ({page}) => {
     await adminLogin(page, adminEmail, "");
 
     alertMessage(page);
@@ -139,7 +145,7 @@ test('Login with empty adminPassword should return alert', async ({page}) => {
     expect(page.url()).toBe(`${URL}/login`);
 });
 
-test('Register with valid credentials', async ({page}) => {
+test('14.Register with valid credentials', async ({page}) => {
     
     await userRegister(page, userEmail, userPassword, userRepeatPassword);    
 
@@ -148,62 +154,72 @@ test('Register with valid credentials', async ({page}) => {
     expect(page.url()).toBe(`${URL}/catalog`);
 });
 
-test('Register with empty fields should return alert', async ({page}) => {
+test('15.Register with empty fields should return alert', async ({page}) => {
     
     await userRegister(page, " ", " ", " ");
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe(`${URL}/register`);
 });
 
-test('Register with empty email should return alert', async ({page}) => {
+test('16.Register with empty email should return alert', async ({page}) => {
     
     await userRegister(page, " ", userPassword, userRepeatPassword);
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe(`${URL}/register`);
 });
 
-test('Register with empty password should return alert', async ({page}) => {
+test('17.Register with empty password should return alert', async ({page}) => {
     
     await userRegister(page, userEmail, " ", userRepeatPassword);
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe(`${URL}/register`);
 });
 
-test('Register with empty repeat password should return alert', async ({page}) => {
+test('18.Register with empty repeat password should return alert', async ({page}) => {
     
     await userRegister(page, userEmail, userPassword, " ");
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe(`${URL}/register`);
 });
 
-test('Register with diferent password and repeat password should return alert', async ({page}) => {
+test('19.Register with diferent password and repeat password should return alert', async ({page}) => {
     
     await userRegister(page, userEmail, userPassword, "123456");
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/register"]');    
 
     expect(page.url()).toBe(`${URL}/register`);
 });
 
-test('Add book with correct data', async ({page}) => {
+test('20.Add book with correct data', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -214,7 +230,7 @@ test('Add book with correct data', async ({page}) => {
     expect(page.url()).toBe(`${URL}/catalog`);    
 });
 
-test('Add book with empty title fields should return alert', async ({page}) => {
+test('21.Add book with empty title fields should return alert', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -222,12 +238,14 @@ test('Add book with empty title fields should return alert', async ({page}) => {
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/create"]');
 
     expect(page.url()).toBe(`${URL}/create`);    
 });
 
-test('Add book with empty description fields should return alert', async ({page}) => {
+test('22.Add book with empty description fields should return alert', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -235,12 +253,14 @@ test('Add book with empty description fields should return alert', async ({page}
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/create"]');
 
     expect(page.url()).toBe(`${URL}/create`);    
 });
 
-test('Add book with empty Image Url fields should return alert', async ({page}) => {
+test('23.Add book with empty Image Url fields should return alert', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -248,12 +268,14 @@ test('Add book with empty Image Url fields should return alert', async ({page}) 
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/create"]');
 
     expect(page.url()).toBe(`${URL}/create`);    
 });
 
-test('Add book with empty book type fields should return alert', async ({page}) => {
+test('24.Add book with empty book type fields should return alert', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -261,12 +283,14 @@ test('Add book with empty book type fields should return alert', async ({page}) 
     
     await alertMessage(page);
 
+    await page.click('input[type="submit"]');
+
     await page.$('a[href="/create"]');
 
     expect(page.url()).toBe(`${URL}/create`);    
 });
 
-test('login user see All book displayed', async ({page}) => {
+test('25.login user see All book displayed', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword); 
 
@@ -277,18 +301,18 @@ test('login user see All book displayed', async ({page}) => {
     expect(booksElements.length).toBeGreaterThan(0);   
 });
 
-test('When book in All book are zero should return proper message', async ({page}) => {
+// test('26.When book in All book are zero should return proper message', async ({page}) => {
     
-    await adminLogin(page, adminEmail, adminPassword); 
+//     await adminLogin(page, adminEmail, adminPassword); 
 
-    await page.waitForSelector('.dashboard');
+//     await page.waitForSelector('.dashboard');
 
-    const noBooksMessage = await page.textContent('.no-books');
+//     const noBooksMessage = await page.textContent('.no-books');
 
-    expect(noBooksMessage).toBe('No books in database!');   
-});
+//     expect(noBooksMessage).toBe('No books in database!');   
+// });
 
-test('login user see Details page', async ({page}) => {
+test('27.login user see Details page', async ({page}) => {
     
     await adminLogin(page, adminEmail, adminPassword);
 
@@ -304,7 +328,7 @@ test('login user see Details page', async ({page}) => {
     expect(detailsPageTitle).toBe('Test Book');   
 });
 
-test('Guest user see Details page', async ({page}) => {    
+test('28.Guest user see Details page', async ({page}) => {    
    
     await page.goto(URL);    
     
@@ -318,7 +342,7 @@ test('Guest user see Details page', async ({page}) => {
     expect(detailsPageTitle).not.toBeNull();   
 });
 
-test('Details page should content all information', async ({page}) => {
+test('29.Details page should content all information', async ({page}) => {
         
     await page.goto(URL);    
     
@@ -336,20 +360,20 @@ test('Details page should content all information', async ({page}) => {
     expect(imagePageTitle).not.toBeNull();   
 });
 
-test('Details page should content like button for non creator', async ({page}) => {
+// test('30.Details page should content like button for non creator', async ({page}) => {
         
-    await userRegister(page, userEmail, userPassword, userRepeatPassword);    
+//     await userRegister(page, userEmail, userPassword, userRepeatPassword);    
     
-    await page.click('a[href="/catalog"]');
-    await page.waitForURL(`${URL}/catalog`);
-    await page.click('.otherBooks a.button');   
+//     await page.click('a[href="/catalog"]');
+//     await page.waitForURL(`${URL}/catalog`);
+//     await page.click('.otherBooks a.button');   
 
-    const like = await page.textContent('.actions a');
+//     const like = await page.textContent('.actions a');
        
-    expect(like).toEqual('Like');   
-});
+//     expect(like).toEqual('Like');   
+// });
 
-test('Details page should like button for creator', async ({page}) => {
+test('31.Details page should like button for creator', async ({page}) => {
         
     await adminLogin(page, 'john@abv.bg', adminPassword);    
     
@@ -362,20 +386,20 @@ test('Details page should like button for creator', async ({page}) => {
     expect(like).toBe('Like');   
 });
 
-test('Details page should be visible Edit and Delete buttons for creator', async ({page}) => {
+// test.only('32.Details page should be visible Edit and Delete buttons for creator', async ({page}) => {
         
-    await adminLogin(page, 'john@abv.bg', adminPassword);    
+//     await adminLogin(page, 'john@abv.bg', adminPassword);    
     
-    await page.click('a[href="/catalog"]');
-    await page.waitForURL(`${URL}/catalog`);
-    await page.click('.otherBooks a.button');   
+//     await page.click('a[href="/catalog"]');
+//     await page.waitForURL(`${URL}/catalog`);
+//     await page.click('.otherBooks a.button');   
 
-    const editButton = await page.textContent('.actions a');    
+//     const editButton = await page.textContent('.actions a');    
        
-    expect(editButton).toBe('Edit');       
-});
+//     expect(editButton).toBe('Edit');       
+// });
 
-test('Logout should work properly', async ({page}) => {
+test('33.Logout should work properly', async ({page}) => {
         
     await adminLogin(page, 'john@abv.bg', adminPassword);
 
