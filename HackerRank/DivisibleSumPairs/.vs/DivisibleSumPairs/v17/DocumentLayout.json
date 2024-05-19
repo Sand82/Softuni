@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Softuni\\HackerRank\\DivisibleSumPairs\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1BEC189C-A3A3-4311-9F85-F10C35F5461A}|DivisibleSumPairs\\DivisibleSumPairs.csproj|c:\\softuni\\hackerrank\\divisiblesumpairs\\divisiblesumpairs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BEC189C-A3A3-4311-9F85-F10C35F5461A}|DivisibleSumPairs\\DivisibleSumPairs.csproj|solutionrelative:divisiblesumpairs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Softuni\\HackerRank\\DivisibleSumPairs\\DivisibleSumPairs\\Program.cs",
+              "RelativeDocumentMoniker": "DivisibleSumPairs\\Program.cs",
+              "ToolTip": "C:\\Softuni\\HackerRank\\DivisibleSumPairs\\DivisibleSumPairs\\Program.cs*",
+              "RelativeToolTip": "DivisibleSumPairs\\Program.cs*",
+              "ViewState": "AQIAABYAAAAAAAAAAAAowCEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T08:31:41.331Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
