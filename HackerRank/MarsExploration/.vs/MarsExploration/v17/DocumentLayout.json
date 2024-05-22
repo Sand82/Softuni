@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Softuni\\HackerRank\\MarsExploration\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{572711C8-2E10-47C2-9848-639EDFBF1976}|MarsExploration\\MarsExploration.csproj|c:\\softuni\\hackerrank\\marsexploration\\marsexploration\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{572711C8-2E10-47C2-9848-639EDFBF1976}|MarsExploration\\MarsExploration.csproj|solutionrelative:marsexploration\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Softuni\\HackerRank\\MarsExploration\\MarsExploration\\Program.cs",
+              "RelativeDocumentMoniker": "MarsExploration\\Program.cs",
+              "ToolTip": "C:\\Softuni\\HackerRank\\MarsExploration\\MarsExploration\\Program.cs",
+              "RelativeToolTip": "MarsExploration\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T15:41:24.771Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
