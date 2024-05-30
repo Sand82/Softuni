@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Softuni\\HackerRank\\PickingNumbers\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08D4001D-F270-4492-81A2-4D2563E16AA4}|PickingNumbers\\PickingNumbers.csproj|c:\\softuni\\hackerrank\\pickingnumbers\\pickingnumbers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08D4001D-F270-4492-81A2-4D2563E16AA4}|PickingNumbers\\PickingNumbers.csproj|solutionrelative:pickingnumbers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Softuni\\HackerRank\\PickingNumbers\\PickingNumbers\\Program.cs",
+              "RelativeDocumentMoniker": "PickingNumbers\\Program.cs",
+              "ToolTip": "C:\\Softuni\\HackerRank\\PickingNumbers\\PickingNumbers\\Program.cs",
+              "RelativeToolTip": "PickingNumbers\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAuwC4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:47:36.754Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
