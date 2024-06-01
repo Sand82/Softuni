@@ -47,9 +47,25 @@ class Result
             countFirst--;
         }
 
-        var result = collection.Where(x => x.Value == 3).Count();        
+        var result = collection.Where(x => x.Value == b.Count).ToList();
 
-        return result;
+        var count = 0;
+
+        for (int i = 0; i < result.Count; i++)
+        {
+            var currNum = result[i].Key;
+
+            if (b.Where(x => x % currNum != 0).Any())
+            {
+                continue;
+            }
+            else
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
 
