@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Softuni\\HackerRank\\NumberLineJumps\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9270725B-B923-4B65-99D2-27D921399098}|NumberLineJumps\\NumberLineJumps.csproj|c:\\softuni\\hackerrank\\numberlinejumps\\numberlinejumps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9270725B-B923-4B65-99D2-27D921399098}|NumberLineJumps\\NumberLineJumps.csproj|solutionrelative:numberlinejumps\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Softuni\\HackerRank\\NumberLineJumps\\NumberLineJumps\\Program.cs",
+              "RelativeDocumentMoniker": "NumberLineJumps\\Program.cs",
+              "ToolTip": "C:\\Softuni\\HackerRank\\NumberLineJumps\\NumberLineJumps\\Program.cs",
+              "RelativeToolTip": "NumberLineJumps\\Program.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAuwDAAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:29:07.332Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
