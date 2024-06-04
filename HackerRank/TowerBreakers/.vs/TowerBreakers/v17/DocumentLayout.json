@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Softuni\\HackerRank\\TowerBreakers\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70433F51-1CDC-4B4B-9AB3-652784A7CA29}|TowerBreakers\\TowerBreakers.csproj|c:\\softuni\\hackerrank\\towerbreakers\\towerbreakers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70433F51-1CDC-4B4B-9AB3-652784A7CA29}|TowerBreakers\\TowerBreakers.csproj|solutionrelative:towerbreakers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Softuni\\HackerRank\\TowerBreakers\\TowerBreakers\\Program.cs",
+              "RelativeDocumentMoniker": "TowerBreakers\\Program.cs",
+              "ToolTip": "C:\\Softuni\\HackerRank\\TowerBreakers\\TowerBreakers\\Program.cs",
+              "RelativeToolTip": "TowerBreakers\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAYwBEAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T11:28:40.615Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
